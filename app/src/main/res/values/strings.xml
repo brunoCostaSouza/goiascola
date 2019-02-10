@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">GoiasCola</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">www.goiascola.com.br</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+    <string name="voc_j_sabe_qual_produto_usar">Você já sabe qual produto usar?</string>
+    <string name="title_activity_products">Products</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="digite_a_rea_m">Digite a área (M²)</string>
+    <string name="calcular">Calcular</string>
+    <string name="o_que_vo_ir_construir_hoje">O que voçê irá construir hoje?</string>
+    <string name="levantar_paredes">Levantar paredes</string>
+    <string name="acabamento_reboco">Acabamento / Reboco</string>
+</resources>
