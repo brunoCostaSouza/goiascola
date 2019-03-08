@@ -14,4 +14,19 @@
     <string name="o_que_vo_ir_construir_hoje">O que voçê irá construir hoje?</string>
     <string name="levantar_paredes">Levantar paredes</string>
     <string name="acabamento_reboco">Acabamento / Reboco</string>
+    <string-array name="tijolos">
+        <item>Tijolo 14x09</item>
+        <item>Tijolo 19x09</item>
+        <item>Tijolo deitado</item>
+        <item>Bloco de concreto 19x09</item>
+    </string-array>
+    <string name="title_activity_where_are_we">Onde estamos?</string>
+    <string name="text_our_company_1">Atender com Excelência as necessidades dos Clientes na Área Analítica oferecendo
+        Produtos e Serviços Inovadores, de Alta Tecnologia e Qualidade para contribuir no desenvolvimento de pesquisas e
+        produtos que proporcionem melhor qualidade de vida para a Humanidade.
+    </string>
+    <string name="text_our_company_2">Ser reconhecida como uma Empresa inovadora, sólida e confiável fornecedora de
+        produtos e serviços de tecnologia avançada, com uma equipe capacitada e comprometida em atender ou exceder as
+        expectativas dos Clientes com total satisfação
+    </string>
 </resources>

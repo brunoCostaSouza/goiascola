@@ -4,12 +4,15 @@ class ResultFactory {
     companion object {
         private var instance: ResultFactory? = null
         private lateinit var TYPE_PRODUCT: ProductsEnum
+        private var TYPE_BRICK: TijolosEnum? = null
 
-        fun getInstanceFactory(typeProducts: ProductsEnum): ResultFactory{
+        fun getInstanceFactory(typeProducts: ProductsEnum, typeBrick: TijolosEnum? = null): ResultFactory{
             if (instance == null){
                 instance = ResultFactory()
             }
             this.TYPE_PRODUCT = typeProducts
+            this.TYPE_BRICK = typeBrick
+
             return instance!!
         }
     }
@@ -26,7 +29,7 @@ class ResultFactory {
 
     private fun argamassaPolimericaBarrica50kg(mQ: Double): HashMap<Int, String> {
         val result = HashMap<Int, String>()
-        val r = mQ / 33
+        val r = mQ / capacidade(50.0)
         if(r <= 1){
             result[1] = "1 Barrica de 50Kg."
         } else {
@@ -38,7 +41,7 @@ class ResultFactory {
 
     private fun argamassaPolimericaSaco15kg(mQ: Double): HashMap<Int, String>{
         val result = HashMap<Int, String>()
-        val r = mQ / 7.5
+        val r = mQ / capacidade(15.0)
         if(r <= 1){
             result[1] = "1 saco valvulado de 15Kg."
         } else {
@@ -58,7 +61,8 @@ class ResultFactory {
 
     private fun argamassaPolimericaBisnaga3kg(mQ: Double): HashMap<Int, String>{
         val result = HashMap<Int, String>()
-        val r = mQ / 1.75
+
+        val r = mQ / capacidade(3.5)
         if(r <= 1){
             result[1] = "1 bisnaga de 3,5Kg."
         } else {
@@ -75,6 +79,16 @@ class ResultFactory {
         }
 
         return result
+    }
+
+    private fun capacidade(recipienteEmKg: Double): Double{
+        return  when(TYPE_BRICK){
+            TijolosEnum.TIJOLO_14X09 -> {recipienteEmKg / 2}
+            TijolosEnum.TIJOLO_19X09 -> {recipienteEmKg / 1.5}
+            TijolosEnum.TIJOLO_DEITADO -> {recipienteEmKg / 2.5}
+            TijolosEnum.BLOCO_CONCRETO_19X09 -> {recipienteEmKg / 1.5}
+            else -> {recipienteEmKg / 2}
+        }
     }
 
     private fun rebocoPlusBalde30kg(mQ: Double): HashMap<Int, String>{

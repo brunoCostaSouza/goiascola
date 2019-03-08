@@ -66,9 +66,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             R.id.nav_camera -> {
                 // Handle the camera action
             }
-            R.id.nav_gallery -> {
 
-            }
             R.id.nav_slideshow -> {
 
             }
@@ -76,6 +74,9 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 val url = "http://www.goiascola.com.br/"
                 val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
                 startActivity(intent)
+            }
+            R.id.nav_place -> {
+                startActivity(WhereAreWeActivity.getInstance(this))
             }
         }
 
