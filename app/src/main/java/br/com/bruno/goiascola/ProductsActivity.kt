@@ -53,6 +53,7 @@ class ProductsActivity : AppCompatActivity() {
                     dot3.setImageResource(R.drawable.dot_circular_empy)
                     dot4.visibility = View.GONE
                     dot5.visibility = View.GONE
+                    dot6.visibility = View.GONE
                 }
 
             type_reboco -> {
@@ -61,6 +62,7 @@ class ProductsActivity : AppCompatActivity() {
                     dot3.visibility = View.GONE
                     dot4.setImageResource(R.drawable.dot_circular)
                     dot5.setImageResource(R.drawable.dot_circular_empy)
+                    dot6.setImageResource(R.drawable.dot_circular_empy)
             }
         }
 
@@ -78,6 +80,7 @@ class ProductsActivity : AppCompatActivity() {
                             dot3.setImageResource(R.drawable.dot_circular_empy)
                             dot4.visibility = View.GONE
                             dot5.visibility = View.GONE
+                            dot6.visibility = View.GONE
                         }
                         2 -> {
                             dot1.setImageResource(R.drawable.dot_circular_empy)
@@ -85,6 +88,7 @@ class ProductsActivity : AppCompatActivity() {
                             dot3.setImageResource(R.drawable.dot_circular_empy)
                             dot4.visibility = View.GONE
                             dot5.visibility = View.GONE
+                            dot6.visibility = View.GONE
                         }
                         3 -> {
                             dot1.setImageResource(R.drawable.dot_circular_empy)
@@ -92,6 +96,7 @@ class ProductsActivity : AppCompatActivity() {
                             dot3.setImageResource(R.drawable.dot_circular)
                             dot4.visibility = View.GONE
                             dot5.visibility = View.GONE
+                            dot6.visibility = View.GONE
                         }
                     }
                     type_reboco -> when(position+1){
@@ -101,6 +106,7 @@ class ProductsActivity : AppCompatActivity() {
                             dot3.visibility = View.GONE
                             dot4.setImageResource(R.drawable.dot_circular)
                             dot5.setImageResource(R.drawable.dot_circular_empy)
+                            dot6.setImageResource(R.drawable.dot_circular_empy)
                         }
                         2 -> {
                             dot1.visibility = View.GONE
@@ -108,6 +114,15 @@ class ProductsActivity : AppCompatActivity() {
                             dot3.visibility = View.GONE
                             dot4.setImageResource(R.drawable.dot_circular_empy)
                             dot5.setImageResource(R.drawable.dot_circular)
+                            dot6.setImageResource(R.drawable.dot_circular_empy)
+                        }
+                        3 -> {
+                            dot1.visibility = View.GONE
+                            dot2.visibility = View.GONE
+                            dot3.visibility = View.GONE
+                            dot4.setImageResource(R.drawable.dot_circular_empy)
+                            dot5.setImageResource(R.drawable.dot_circular_empy)
+                            dot6.setImageResource(R.drawable.dot_circular)
                         }
                     }
                     else -> when(position+1){
@@ -117,6 +132,7 @@ class ProductsActivity : AppCompatActivity() {
                             dot3.setImageResource(R.drawable.dot_circular_empy)
                             dot4.setImageResource(R.drawable.dot_circular_empy)
                             dot5.setImageResource(R.drawable.dot_circular_empy)
+                            dot6.setImageResource(R.drawable.dot_circular_empy)
                         }
                         2 -> {
                             dot1.setImageResource(R.drawable.dot_circular_empy)
@@ -124,6 +140,7 @@ class ProductsActivity : AppCompatActivity() {
                             dot3.setImageResource(R.drawable.dot_circular_empy)
                             dot4.setImageResource(R.drawable.dot_circular_empy)
                             dot5.setImageResource(R.drawable.dot_circular_empy)
+                            dot6.setImageResource(R.drawable.dot_circular_empy)
                         }
                         3 -> {
                             dot1.setImageResource(R.drawable.dot_circular_empy)
@@ -131,6 +148,7 @@ class ProductsActivity : AppCompatActivity() {
                             dot3.setImageResource(R.drawable.dot_circular)
                             dot4.setImageResource(R.drawable.dot_circular_empy)
                             dot5.setImageResource(R.drawable.dot_circular_empy)
+                            dot6.setImageResource(R.drawable.dot_circular_empy)
                         }
                         4 -> {
                             dot1.setImageResource(R.drawable.dot_circular_empy)
@@ -138,6 +156,7 @@ class ProductsActivity : AppCompatActivity() {
                             dot3.setImageResource(R.drawable.dot_circular_empy)
                             dot4.setImageResource(R.drawable.dot_circular)
                             dot5.setImageResource(R.drawable.dot_circular_empy)
+                            dot6.setImageResource(R.drawable.dot_circular_empy)
                         }
                         5 -> {
                             dot1.setImageResource(R.drawable.dot_circular_empy)
@@ -145,6 +164,15 @@ class ProductsActivity : AppCompatActivity() {
                             dot3.setImageResource(R.drawable.dot_circular_empy)
                             dot4.setImageResource(R.drawable.dot_circular_empy)
                             dot5.setImageResource(R.drawable.dot_circular)
+                            dot6.setImageResource(R.drawable.dot_circular_empy)
+                        }
+                        6 -> {
+                            dot1.setImageResource(R.drawable.dot_circular_empy)
+                            dot2.setImageResource(R.drawable.dot_circular_empy)
+                            dot3.setImageResource(R.drawable.dot_circular_empy)
+                            dot4.setImageResource(R.drawable.dot_circular_empy)
+                            dot5.setImageResource(R.drawable.dot_circular_empy)
+                            dot6.setImageResource(R.drawable.dot_circular)
                         }
                     }
                 }
@@ -194,6 +222,7 @@ class ProductsActivity : AppCompatActivity() {
                 type_reboco -> return when(position+1){
                     1 -> Product1Fragment.newInstance(4)
                     2 -> Product1Fragment.newInstance(5)
+                    3 -> Product1Fragment.newInstance(6)
                     else -> {
                         Product1Fragment.newInstance(0)
                     }
@@ -205,6 +234,7 @@ class ProductsActivity : AppCompatActivity() {
                     3 -> Product1Fragment.newInstance(3)
                     4 -> Product1Fragment.newInstance(4)
                     5 -> Product1Fragment.newInstance(5)
+                    6 -> Product1Fragment.newInstance(6)
 
                     else -> {
                         Product1Fragment.newInstance(0)
@@ -216,8 +246,8 @@ class ProductsActivity : AppCompatActivity() {
         override fun getCount(): Int {
             return when (type) {
                 type_parede -> 3
-                type_reboco -> 2
-                else -> 5
+                type_reboco -> 3
+                else -> 6
             }
         }
     }

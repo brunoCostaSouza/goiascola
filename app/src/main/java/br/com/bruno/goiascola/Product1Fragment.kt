@@ -90,7 +90,19 @@ class Product1Fragment : Fragment() {
                 }
             }
             5 -> {
-                rootView.descriptionProduct.text = "BARRICA DE 40 KG"
+                rootView.descriptionProduct.text = "BARRICA DE 50 KG"
+                rootView.section_label.text = "Reboco Plus Pronto"
+                rootView.imageProduct.setImageResource(R.drawable.reboco)
+                rootView.llButton.setOnClickListener {
+                    startViewProduct(
+                        rootView.section_label.text.toString(),
+                        rootView.descriptionProduct.text.toString(),
+                        R.drawable.reboco,
+                        ProductsEnum.REBOCO_PLUS_BARRICA_50_KG)
+                }
+            }
+            6 -> {
+                rootView.descriptionProduct.text = "BARRICA DE 50 KG"
                 rootView.section_label.text = "Chapisco Rolado"
                 rootView.imageProduct.setImageResource(R.drawable.chapiscoprod)
                 rootView.llButton.setOnClickListener {

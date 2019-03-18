@@ -5,13 +5,14 @@ class ResultFactory {
         private var instance: ResultFactory? = null
         private lateinit var TYPE_PRODUCT: ProductsEnum
         private var TYPE_BRICK: TijolosEnum? = null
+        private var TYPE_REND: RendimentoRebocoEnum? = null
 
-        fun getInstanceFactory(typeProducts: ProductsEnum, typeBrick: TijolosEnum? = null): ResultFactory{
-            if (instance == null){
-                instance = ResultFactory()
-            }
+        fun getInstanceFactory(typeProducts: ProductsEnum, typeBrick: TijolosEnum? = null, typeRend: RendimentoRebocoEnum? = null): ResultFactory{
+            if (instance == null){instance = ResultFactory()}
+
             this.TYPE_PRODUCT = typeProducts
             this.TYPE_BRICK = typeBrick
+            this.TYPE_REND = typeRend
 
             return instance!!
         }
@@ -23,6 +24,7 @@ class ResultFactory {
             ProductsEnum.ARGAMASSA_POLIMERICA_SACO_15KG -> {argamassaPolimericaSaco15kg(mQ)}
             ProductsEnum.ARGAMASSA_POLIMERICA_BISNAGA_3KG -> {argamassaPolimericaBisnaga3kg(mQ)}
             ProductsEnum.REBOCO_PLUS_BALDE_30_KG -> {rebocoPlusBalde30kg(mQ)}
+            ProductsEnum.REBOCO_PLUS_BARRICA_50_KG -> {rebocoPlusBalde30kg(mQ) }//TODO: calcular
             ProductsEnum.CHAPISCO_ROLADO_BARRICA_40KG -> {chapiscoRoladoBarrica40kg(mQ)}
         }
     }
@@ -83,7 +85,7 @@ class ResultFactory {
 
     private fun capacidade(recipienteEmKg: Double): Double{
         return  when(TYPE_BRICK){
-            TijolosEnum.TIJOLO_14X09 -> {recipienteEmKg / 2}
+            TijolosEnum.TIJOLO_14X09 -> {recipienteEmKg / 2} //recipienteEmKg / M²
             TijolosEnum.TIJOLO_19X09 -> {recipienteEmKg / 1.5}
             TijolosEnum.TIJOLO_DEITADO -> {recipienteEmKg / 2.5}
             TijolosEnum.BLOCO_CONCRETO_19X09 -> {recipienteEmKg / 1.5}
@@ -106,7 +108,13 @@ class ResultFactory {
 
     private fun chapiscoRoladoBarrica40kg(mQ: Double): HashMap<Int, String>{
         val result = HashMap<Int, String>()
-        val r = mQ / 40
+
+        val r = if(TYPE_REND == RendimentoRebocoEnum.RECEBER_REBOCO) {
+            mQ / 50
+        } else {
+            mQ / 16.6
+        }
+
         if(r <= 1) {
             result[1] = "1 Barrica de 40Kg."
         } else {

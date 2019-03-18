@@ -11,7 +11,7 @@
     <string name="section_format">Hello World from section: %1$d</string>
     <string name="digite_a_rea_m">Digite a área (M²)</string>
     <string name="calcular">Calcular</string>
-    <string name="o_que_vo_ir_construir_hoje">O que voçê irá construir hoje?</string>
+    <string name="o_que_vo_ir_construir_hoje">O que você irá construir hoje?</string>
     <string name="levantar_paredes">Levantar paredes</string>
     <string name="acabamento_reboco">Acabamento / Reboco</string>
     <string-array name="tijolos">
@@ -20,7 +20,12 @@
         <item>Tijolo deitado</item>
         <item>Bloco de concreto 19x09</item>
     </string-array>
+    <string-array name="rendimentos_reboco">
+        <item>Para receber reboco</item>
+        <item>Para ficar exposto</item>
+    </string-array>
     <string name="title_activity_where_are_we">Onde estamos?</string>
+
     <string name="text_our_company_1">Atender com Excelência as necessidades dos Clientes na Área Analítica oferecendo
         Produtos e Serviços Inovadores, de Alta Tecnologia e Qualidade para contribuir no desenvolvimento de pesquisas e
         produtos que proporcionem melhor qualidade de vida para a Humanidade.
@@ -28,5 +33,39 @@
     <string name="text_our_company_2">Ser reconhecida como uma Empresa inovadora, sólida e confiável fornecedora de
         produtos e serviços de tecnologia avançada, com uma equipe capacitada e comprometida em atender ou exceder as
         expectativas dos Clientes com total satisfação
+    </string>
+    <string name="text_our_company_3">
+        Nossos Clientes são a razão de nossa existência\n
+        Honestidade e Credibilidade \n
+        Profissionalismo \n
+        Qualidade e Confiabilidade
+    </string>
+    <string name="text_our_company_4">
+        Respeito ao meio-ambiente \n
+        Desenvolvimento de colaboradores \n
+        Investimento constante em infra-estrutura e embalagens
+    </string>
+    <string name="text_our_company_5">
+        Construção Civil
+    </string>
+    <string name="text_our_company_6">
+        Cola para tijolos e blocos (Argamassa Polimérica)\n
+        Reboco Plus Pronto \n
+        Chapisco Rolado
+    </string>
+    <string name="text_our_company_7">
+        Fornecemos Produtos e Serviços de excelente Qualidade com total garantia, otimizando custos, trazendo maior
+        lucratividade e vantagem competitiva para nossos Clientes e Parceiros.
+    </string>
+    <string name="text_comparative_2">Utilizando a <b>Goiás Cola</b> você tem:</string>
+    <string name="text_comparative_1">Custos de uma construção popular:</string>
+    <string name="text_comparative_3">Um pedreiro e um ajudante podem construir até 45 m² por dia de trabalho com menor
+        desgaste e melhor aproveitamento.
+    </string>
+    <string name="text_comparative_4">Não agride o meio ambiente. Não usa água e nem areia. Redução drástica nos
+        resíduos e no disperdício. O disperdício representa até 6% no custo final da obra.
+    </string>
+    <string name="text_comparative_5">Estudos em laboratórios especializados e em ambiente controlado, comproravam a
+        resistência à compressão, tração e módulo de elásticidade, comparadas à argamassa tradicional.
     </string>
 </resources>

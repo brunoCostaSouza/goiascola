@@ -13,11 +13,15 @@ class ViewProductActivity : AppCompatActivity() {
     companion object {
         lateinit var TYPE_PRODUCT: ProductsEnum
         lateinit var TYPE_BRICK: TijolosEnum
+        lateinit var TYPE_REMD: RendimentoRebocoEnum
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_view_product)
+
         TYPE_BRICK = TijolosEnum.TIJOLO_14X09
+        TYPE_REMD = RendimentoRebocoEnum.RECEBER_REBOCO
+
         setViews()
     }
 
@@ -34,6 +38,10 @@ class ViewProductActivity : AppCompatActivity() {
                 ProductsEnum.ARGAMASSA_POLIMERICA_BISNAGA_3KG -> {
                 spnTipoTijolo.visibility = View.VISIBLE
             }
+
+            ProductsEnum.CHAPISCO_ROLADO_BARRICA_40KG ->{
+                spnReboco.visibility = View.VISIBLE
+            }
         }
 
         textProduct1.text = text1
@@ -42,7 +50,7 @@ class ViewProductActivity : AppCompatActivity() {
 
         btnCalcular.setOnClickListener {
             if(editMQ.text.toString().isNotEmpty()){
-                val result = ResultFactory.getInstanceFactory(TYPE_PRODUCT, TYPE_BRICK).calcular(editMQ.text.toString().toDouble())
+                val result = ResultFactory.getInstanceFactory(TYPE_PRODUCT, TYPE_BRICK, TYPE_REMD).calcular(editMQ.text.toString().toDouble())
                 textResult.text = result[1]
                 if(result.size > 1) {
                     textObs.text = result[2]
@@ -52,11 +60,11 @@ class ViewProductActivity : AppCompatActivity() {
             }
         }
 
-        spnTipoTijolo.onItemSelectedListener = listener
+        spnTipoTijolo.onItemSelectedListener = listenerTijolo
+        spnReboco.onItemSelectedListener = listenerReboco
     }
 
-    object listener : AdapterView.OnItemSelectedListener {
-
+    object listenerTijolo : AdapterView.OnItemSelectedListener {
         override fun onItemSelected(parent: AdapterView<*>, view: View, pos: Int, id: Long) {
             TYPE_BRICK = when(pos){
                 0 -> {TijolosEnum.TIJOLO_14X09}
@@ -66,10 +74,17 @@ class ViewProductActivity : AppCompatActivity() {
                 else -> {TijolosEnum.TIJOLO_14X09}
             }
         }
+        override fun onNothingSelected(parent: AdapterView<out Adapter>?) {}
+    }
 
-        override fun onNothingSelected(parent: AdapterView<out Adapter>?) {
-
+    object listenerReboco : AdapterView.OnItemSelectedListener {
+        override fun onItemSelected(parent: AdapterView<*>, view: View, pos: Int, id: Long) {
+            TYPE_REMD = when(pos){
+                0 -> {RendimentoRebocoEnum.RECEBER_REBOCO}
+                1 -> {RendimentoRebocoEnum.FICAR_EXPOSTO}
+                else -> {RendimentoRebocoEnum.RECEBER_REBOCO}
+            }
         }
-
+        override fun onNothingSelected(parent: AdapterView<out Adapter>?) {}
     }
 }

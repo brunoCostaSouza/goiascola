@@ -5,19 +5,19 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".OurCompanyActivity">
+        tools:context=".ComparativeActivity">
 
     <ScrollView
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginBottom="15dp"
+            android:layout_marginBottom="20dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
         <android.support.constraint.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_marginBottom="10dp"
                 android:layout_height="wrap_content">
+
 
             <LinearLayout
                     android:id="@+id/ll1"
@@ -37,7 +37,7 @@
                         android:layout_height="50dp"/>
 
                 <TextView
-                        android:text="NOSSA EMPRESA"
+                        android:text="PLANO DE OBRA"
                         android:layout_width="match_parent"
                         android:layout_marginStart="5dp"
                         android:textSize="17sp"
@@ -48,12 +48,23 @@
 
             </LinearLayout>
 
+            <TextView
+                    android:id="@+id/text1"
+                    app:layout_constraintTop_toBottomOf="@id/ll1"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="18sp"
+                    android:textAlignment="center"
+                    android:layout_width="match_parent"
+                    android:text="@string/text_comparative_1"
+                    android:layout_height="wrap_content"/>
+
             <LinearLayout
                     android:id="@+id/ll2"
-                    app:layout_constraintTop_toBottomOf="@id/ll1"
+                    app:layout_constraintTop_toBottomOf="@id/text1"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="5dp"
                     android:orientation="vertical"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
@@ -61,33 +72,23 @@
                 <LinearLayout
                         android:orientation="horizontal"
                         android:layout_width="match_parent"
-                        android:gravity="center"
+                        android:gravity="left"
                         android:layout_height="match_parent">
 
                     <ImageView
-                            android:src="@drawable/imgmissao"
-                            android:layout_width="40dp"
-                            android:layout_marginStart="5dp"
-                            android:layout_height="40dp"/>
+                            android:src="@drawable/peaplework"
+                            android:layout_width="35dp"
+                            android:layout_height="35dp"/>
 
                     <TextView
-                            android:text="Missão"
+                            android:text="MÃO DE OBRA: 40% de custo da obra"
                             android:layout_width="wrap_content"
-                            android:layout_marginStart="5dp"
-                            android:textSize="17sp"
+                            android:layout_marginStart="8dp"
+                            android:textSize="14sp"
                             android:gravity="center_vertical"
                             android:textColor="@color/colorPrimary"
                             android:layout_height="match_parent"/>
                 </LinearLayout>
-
-                <TextView
-                        android:text="@string/text_our_company_1"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginEnd="8dp"
-                        android:textAlignment="center"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"/>
-
 
             </LinearLayout>
 
@@ -96,7 +97,8 @@
                     app:layout_constraintTop_toBottomOf="@id/ll2"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    android:layout_marginTop="30dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="5dp"
                     android:orientation="vertical"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
@@ -104,33 +106,23 @@
                 <LinearLayout
                         android:orientation="horizontal"
                         android:layout_width="match_parent"
-                        android:gravity="center"
+                        android:gravity="left"
                         android:layout_height="match_parent">
 
                     <ImageView
-                            android:src="@drawable/imgvisao"
-                            android:layout_width="40dp"
-                            android:layout_marginStart="5dp"
-                            android:layout_height="40dp"/>
+                            android:src="@drawable/pa"
+                            android:layout_width="35dp"
+                            android:layout_height="35dp"/>
 
                     <TextView
-                            android:text="Visão"
+                            android:text="ESTRUTURA: 30% do custo da obra"
                             android:layout_width="wrap_content"
-                            android:layout_marginStart="5dp"
-                            android:textSize="17sp"
+                            android:layout_marginStart="8dp"
+                            android:textSize="14sp"
                             android:gravity="center_vertical"
                             android:textColor="@color/colorPrimary"
                             android:layout_height="match_parent"/>
                 </LinearLayout>
-
-                <TextView
-                        android:text="@string/text_our_company_2"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginEnd="8dp"
-                        android:textAlignment="center"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"/>
-
 
             </LinearLayout>
 
@@ -139,7 +131,8 @@
                     app:layout_constraintTop_toBottomOf="@id/ll3"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    android:layout_marginTop="30dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="5dp"
                     android:orientation="vertical"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
@@ -147,42 +140,44 @@
                 <LinearLayout
                         android:orientation="horizontal"
                         android:layout_width="match_parent"
-                        android:gravity="center"
+                        android:gravity="left"
                         android:layout_height="match_parent">
 
                     <ImageView
-                            android:src="@drawable/gesture"
-                            android:layout_width="40dp"
-                            android:layout_marginStart="5dp"
-                            android:layout_height="40dp"/>
+                            android:src="@drawable/windows"
+                            android:layout_width="35dp"
+                            android:layout_height="35dp"/>
 
                     <TextView
-                            android:text="Princípios e valores"
+                            android:text="ACABAMENTO: 30% do custo da obra"
                             android:layout_width="wrap_content"
-                            android:layout_marginStart="5dp"
-                            android:textSize="17sp"
+                            android:layout_marginStart="8dp"
+                            android:textSize="14sp"
                             android:gravity="center_vertical"
                             android:textColor="@color/colorPrimary"
                             android:layout_height="match_parent"/>
                 </LinearLayout>
-
-                <TextView
-                        android:text="@string/text_our_company_3"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginEnd="8dp"
-                        android:textAlignment="center"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"/>
-
 
             </LinearLayout>
 
+            <TextView
+                    android:id="@+id/text2"
+                    app:layout_constraintTop_toBottomOf="@id/ll4"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="18sp"
+                    android:layout_marginTop="10dp"
+                    android:textAlignment="center"
+                    android:layout_width="match_parent"
+                    android:text="@string/text_comparative_2"
+                    android:layout_height="wrap_content"/>
+
             <LinearLayout
                     android:id="@+id/ll5"
-                    app:layout_constraintTop_toBottomOf="@id/ll4"
+                    app:layout_constraintTop_toBottomOf="@id/text2"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    android:layout_marginTop="30dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="5dp"
                     android:orientation="vertical"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
@@ -190,32 +185,29 @@
                 <LinearLayout
                         android:orientation="horizontal"
                         android:layout_width="match_parent"
-                        android:gravity="center"
+                        android:gravity="left"
                         android:layout_height="match_parent">
 
                     <ImageView
-                            android:src="@drawable/people"
-                            android:layout_width="40dp"
-                            android:layout_marginStart="5dp"
-                            android:layout_height="40dp"/>
+                            android:src="@drawable/coins"
+                            android:layout_width="35dp"
+                            android:layout_height="35dp"/>
 
                     <TextView
-                            android:text="Responsabilidade Social"
+                            android:text="-30 a 40% do custo final da obra"
                             android:layout_width="wrap_content"
-                            android:layout_marginStart="5dp"
-                            android:textSize="17sp"
+                            android:layout_marginStart="8dp"
+                            android:textSize="14sp"
                             android:gravity="center_vertical"
                             android:textColor="@color/colorPrimary"
                             android:layout_height="match_parent"/>
                 </LinearLayout>
 
                 <TextView
-                        android:text="@string/text_our_company_4"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginEnd="8dp"
-                        android:textAlignment="center"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"/>
+                        android:layout_marginStart="5dp"
+                        android:text="@string/text_comparative_3"
+                        android:layout_height="wrap_content"/>
 
             </LinearLayout>
 
@@ -224,7 +216,8 @@
                     app:layout_constraintTop_toBottomOf="@id/ll5"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    android:layout_marginTop="30dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="5dp"
                     android:orientation="vertical"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
@@ -232,32 +225,29 @@
                 <LinearLayout
                         android:orientation="horizontal"
                         android:layout_width="match_parent"
-                        android:gravity="center"
+                        android:gravity="left"
                         android:layout_height="match_parent">
 
                     <ImageView
-                            android:src="@drawable/capacete"
-                            android:layout_width="40dp"
-                            android:layout_marginStart="5dp"
-                            android:layout_height="40dp"/>
+                            android:src="@drawable/nature"
+                            android:layout_width="35dp"
+                            android:layout_height="35dp"/>
 
                     <TextView
-                            android:text="Setor de atuação"
+                            android:text="Mais sustentabilidade"
                             android:layout_width="wrap_content"
-                            android:layout_marginStart="5dp"
-                            android:textSize="17sp"
+                            android:layout_marginStart="8dp"
+                            android:textSize="14sp"
                             android:gravity="center_vertical"
                             android:textColor="@color/colorPrimary"
                             android:layout_height="match_parent"/>
                 </LinearLayout>
 
                 <TextView
-                        android:text="@string/text_our_company_5"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginEnd="8dp"
-                        android:textAlignment="center"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"/>
+                        android:layout_marginStart="5dp"
+                        android:text="@string/text_comparative_4"
+                        android:layout_height="wrap_content"/>
 
             </LinearLayout>
 
@@ -266,7 +256,8 @@
                     app:layout_constraintTop_toBottomOf="@id/ll6"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    android:layout_marginTop="30dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="5dp"
                     android:orientation="vertical"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
@@ -274,74 +265,29 @@
                 <LinearLayout
                         android:orientation="horizontal"
                         android:layout_width="match_parent"
-                        android:gravity="center"
+                        android:gravity="left"
                         android:layout_height="match_parent">
 
                     <ImageView
-                            android:src="@drawable/carrinho"
-                            android:layout_width="40dp"
-                            android:layout_marginStart="5dp"
-                            android:layout_height="40dp"/>
+                            android:src="@drawable/selo"
+                            android:layout_width="35dp"
+                            android:layout_height="35dp"/>
 
                     <TextView
-                            android:text="Produtos e Serviços"
+                            android:text="Qualidade e resistência comprovadas"
                             android:layout_width="wrap_content"
-                            android:layout_marginStart="5dp"
-                            android:textSize="17sp"
+                            android:layout_marginStart="8dp"
+                            android:textSize="14sp"
                             android:gravity="center_vertical"
                             android:textColor="@color/colorPrimary"
                             android:layout_height="match_parent"/>
                 </LinearLayout>
 
                 <TextView
-                        android:text="@string/text_our_company_6"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginEnd="8dp"
-                        android:textAlignment="center"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"/>
-
-            </LinearLayout>
-
-            <LinearLayout
-                    android:id="@+id/ll8"
-                    app:layout_constraintTop_toBottomOf="@id/ll7"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    android:layout_marginTop="30dp"
-                    android:orientation="vertical"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                <LinearLayout
-                        android:orientation="horizontal"
-                        android:layout_width="match_parent"
-                        android:gravity="center"
-                        android:layout_height="match_parent">
-
-                    <ImageView
-                            android:src="@drawable/carrinho"
-                            android:layout_width="40dp"
-                            android:layout_marginStart="5dp"
-                            android:layout_height="40dp"/>
-
-                    <TextView
-                            android:text="Garantia e Qualidade"
-                            android:layout_width="wrap_content"
-                            android:layout_marginStart="5dp"
-                            android:textSize="17sp"
-                            android:gravity="center_vertical"
-                            android:textColor="@color/colorPrimary"
-                            android:layout_height="match_parent"/>
-                </LinearLayout>
-
-                <TextView
-                        android:text="@string/text_our_company_7"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginEnd="8dp"
-                        android:textAlignment="center"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"/>
+                        android:layout_marginStart="5dp"
+                        android:text="@string/text_comparative_5"
+                        android:layout_height="wrap_content"/>
 
             </LinearLayout>
 
