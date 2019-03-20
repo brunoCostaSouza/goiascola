@@ -33,6 +33,9 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     private fun createListeners(){
         ll3.setOnClickListener { startActivity(UnknowUseActivity.getInstance(applicationContext)) }
         ll2.setOnClickListener { startActivity(ProductsActivity.getInstance(applicationContext)) }
+        imgFacebook.setOnClickListener {startIntent("https://www.facebook.com/goias.cola/")}
+        imgInstagram.setOnClickListener { startIntent("https://www.instagram.com/goiascolaoficial/") }
+        imgYoutube.setOnClickListener { startIntent("https://www.youtube.com/channel/UCbZpTfqrWCkftdvs4ibRzkw") }
     }
 
     override fun onBackPressed() {
@@ -70,12 +73,11 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 startActivity(Intent(this, OurCompanyActivity::class.java))
             }
             R.id.nav_nosso_site -> {
-                val url = "http://www.goiascola.com.br/"
-                val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
-                startActivity(intent)
+                startIntent("http://www.goiascola.com.br/")
             }
             R.id.nav_onde_estamos -> {
-                startActivity(WhereAreWeActivity.getInstance(this))
+                //startActivity(WhereAreWeActivity.getInstance(this))
+                startIntent("https://www.google.com/maps/place/Goi%C3%A1s+Cola+-+Argamassa+Polim%C3%A9rica/@-16.6264538,-49.2915189,16.44z/data=!4m5!3m4!1s0x935ef498a4d26187:0xd2e71d8a87d1996e!8m2!3d-16.6251132!4d-49.2898939")
             }
             R.id.nav_contact -> {
                 var intent = Intent(Intent.ACTION_VIEW)
@@ -105,5 +107,10 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         drawer_layout.closeDrawer(GravityCompat.START)
         return true
+    }
+
+    private fun startIntent(url: String) {
+        val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+        startActivity(intent)
     }
 }

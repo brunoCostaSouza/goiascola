@@ -68,4 +68,6 @@
     <string name="text_comparative_5">Estudos em laboratórios especializados e em ambiente controlado, comproravam a
         resistência à compressão, tração e módulo de elásticidade, comparadas à argamassa tradicional.
     </string>
+    <string name="text_endereco">Rua FL 33 Qd. 01 Lt. 22 Parque das Flores \n Cep 74595-222 - Goiânia - GO \n 62 4141-8474 | 62 4141-8573</string>
+    <string name="comparativo_de_exemplo">Comparativo de exemplo</string>
 </resources>

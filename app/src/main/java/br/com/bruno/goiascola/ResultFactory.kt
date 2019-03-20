@@ -24,8 +24,8 @@ class ResultFactory {
             ProductsEnum.ARGAMASSA_POLIMERICA_SACO_15KG -> {argamassaPolimericaSaco15kg(mQ)}
             ProductsEnum.ARGAMASSA_POLIMERICA_BISNAGA_3KG -> {argamassaPolimericaBisnaga3kg(mQ)}
             ProductsEnum.REBOCO_PLUS_BALDE_30_KG -> {rebocoPlusBalde30kg(mQ)}
-            ProductsEnum.REBOCO_PLUS_BARRICA_50_KG -> {rebocoPlusBalde30kg(mQ) }//TODO: calcular
-            ProductsEnum.CHAPISCO_ROLADO_BARRICA_40KG -> {chapiscoRoladoBarrica40kg(mQ)}
+            ProductsEnum.REBOCO_PLUS_BARRICA_50_KG -> {rebocoPlusBarrica50kg(mQ)}
+            ProductsEnum.CHAPISCO_ROLADO_BARRICA_50KG -> {chapiscoRoladoBarrica50kg(mQ)}
         }
     }
 
@@ -106,7 +106,20 @@ class ResultFactory {
         return result
     }
 
-    private fun chapiscoRoladoBarrica40kg(mQ: Double): HashMap<Int, String>{
+    private fun rebocoPlusBarrica50kg(mQ: Double): HashMap<Int, String> {
+        val result = HashMap<Int, String>()
+        val r = mQ / 16.6
+        if(r <= 1) {
+            result[1] = "1 Barrica de 50Kg"
+        } else {
+            val qtd = Math.ceil(r).toInt()
+            result[1] = "$qtd Barricas de 50Kg."
+        }
+
+        return result
+    }
+
+    private fun chapiscoRoladoBarrica50kg(mQ: Double): HashMap<Int, String>{
         val result = HashMap<Int, String>()
 
         val r = if(TYPE_REND == RendimentoRebocoEnum.RECEBER_REBOCO) {
@@ -116,10 +129,10 @@ class ResultFactory {
         }
 
         if(r <= 1) {
-            result[1] = "1 Barrica de 40Kg."
+            result[1] = "1 Barrica de 50Kg."
         } else {
             val qtd = Math.ceil(r).toInt()
-            result[1] = "$qtd Barricas de 40Kg."
+            result[1] = "$qtd Barricas de 50Kg."
         }
 
         return result

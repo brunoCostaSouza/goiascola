@@ -2,10 +2,13 @@ package br.com.bruno.goiascola
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.util.AttributeSet
 import android.view.View
 import android.widget.Adapter
 import android.widget.AdapterView
+import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_view_product.*
 
 class ViewProductActivity : AppCompatActivity() {
@@ -39,7 +42,7 @@ class ViewProductActivity : AppCompatActivity() {
                 spnTipoTijolo.visibility = View.VISIBLE
             }
 
-            ProductsEnum.CHAPISCO_ROLADO_BARRICA_40KG ->{
+            ProductsEnum.CHAPISCO_ROLADO_BARRICA_50KG ->{
                 spnReboco.visibility = View.VISIBLE
             }
         }
@@ -57,9 +60,22 @@ class ViewProductActivity : AppCompatActivity() {
                 } else {
                     textObs.text = ""
                 }
+            } else {
+                Toast.makeText(this, "Informe a área em M²", Toast.LENGTH_SHORT).show()
             }
         }
 
+        editMQ.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(p0: Editable?) {}
+
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
+
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+               textResult.text = ""
+               textObs.text = ""
+            }
+
+        })
         spnTipoTijolo.onItemSelectedListener = listenerTijolo
         spnReboco.onItemSelectedListener = listenerReboco
     }

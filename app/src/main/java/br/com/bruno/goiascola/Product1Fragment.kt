@@ -92,25 +92,25 @@ class Product1Fragment : Fragment() {
             5 -> {
                 rootView.descriptionProduct.text = "BARRICA DE 50 KG"
                 rootView.section_label.text = "Reboco Plus Pronto"
-                rootView.imageProduct.setImageResource(R.drawable.reboco)
+                rootView.imageProduct.setImageResource(R.drawable.rebocoplus50)
                 rootView.llButton.setOnClickListener {
                     startViewProduct(
                         rootView.section_label.text.toString(),
                         rootView.descriptionProduct.text.toString(),
-                        R.drawable.reboco,
+                        R.drawable.rebocoplus50,
                         ProductsEnum.REBOCO_PLUS_BARRICA_50_KG)
                 }
             }
             6 -> {
                 rootView.descriptionProduct.text = "BARRICA DE 50 KG"
                 rootView.section_label.text = "Chapisco Rolado"
-                rootView.imageProduct.setImageResource(R.drawable.chapiscoprod)
+                rootView.imageProduct.setImageResource(R.drawable.chapisco50)
                 rootView.llButton.setOnClickListener {
                     startViewProduct(
                             rootView.section_label.text.toString(),
                             rootView.descriptionProduct.text.toString(),
-                            R.drawable.chapiscoprod,
-                            ProductsEnum.CHAPISCO_ROLADO_BARRICA_40KG)
+                            R.drawable.chapisco50,
+                            ProductsEnum.CHAPISCO_ROLADO_BARRICA_50KG)
                 }
             }
         }
