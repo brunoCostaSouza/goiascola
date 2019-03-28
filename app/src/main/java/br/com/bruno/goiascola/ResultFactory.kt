@@ -6,13 +6,21 @@ class ResultFactory {
         private lateinit var TYPE_PRODUCT: ProductsEnum
         private var TYPE_BRICK: TijolosEnum? = null
         private var TYPE_REND: RendimentoRebocoEnum? = null
+        private var TYPE_REBOC: TipoRebocoEnum? = null
 
-        fun getInstanceFactory(typeProducts: ProductsEnum, typeBrick: TijolosEnum? = null, typeRend: RendimentoRebocoEnum? = null): ResultFactory{
+        fun getInstanceFactory(
+            typeProducts: ProductsEnum,
+            typeBrick: TijolosEnum? = null,
+            typeRend: RendimentoRebocoEnum? = null,
+            typeReboc: TipoRebocoEnum? = null
+        ): ResultFactory{
+
             if (instance == null){instance = ResultFactory()}
 
             this.TYPE_PRODUCT = typeProducts
             this.TYPE_BRICK = typeBrick
             this.TYPE_REND = typeRend
+            this.TYPE_REBOC = typeReboc
 
             return instance!!
         }
@@ -95,12 +103,17 @@ class ResultFactory {
 
     private fun rebocoPlusBalde30kg(mQ: Double): HashMap<Int, String>{
         val result = HashMap<Int, String>()
-        val r = mQ / 10
+        val capacidade = if(TYPE_REBOC == TipoRebocoEnum.ARGAMASSA_POLIMERICA) 10.0 else 6.0
+        val r = mQ / capacidade
         if(r <= 1) {
             result[1] = "1 Balde de 30Kg"
         } else {
             val qtd = Math.ceil(r).toInt()
             result[1] = "$qtd Baldes de 30Kg."
+            if(qtd > 1) {
+                val result2 = rebocoPlusBarrica50kg(mQ)
+                result[2] = "É recomendado usar ${result2[1]}"
+            }
         }
 
         return result
@@ -108,7 +121,8 @@ class ResultFactory {
 
     private fun rebocoPlusBarrica50kg(mQ: Double): HashMap<Int, String> {
         val result = HashMap<Int, String>()
-        val r = mQ / 16.6
+        val capacidade = if(TYPE_REBOC == TipoRebocoEnum.ARGAMASSA_POLIMERICA) 16.6 else 10.0
+        val r = mQ / capacidade
         if(r <= 1) {
             result[1] = "1 Barrica de 50Kg"
         } else {

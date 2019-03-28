@@ -1,7 +1,9 @@
 package br.com.bruno.goiascola
 
+import android.animation.Animator
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.AttributeSet
@@ -17,6 +19,7 @@ class ViewProductActivity : AppCompatActivity() {
         lateinit var TYPE_PRODUCT: ProductsEnum
         lateinit var TYPE_BRICK: TijolosEnum
         lateinit var TYPE_REMD: RendimentoRebocoEnum
+        lateinit var TYPE_REBOC: TipoRebocoEnum
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,7 +27,8 @@ class ViewProductActivity : AppCompatActivity() {
 
         TYPE_BRICK = TijolosEnum.TIJOLO_14X09
         TYPE_REMD = RendimentoRebocoEnum.RECEBER_REBOCO
-
+        TYPE_REBOC = TipoRebocoEnum.ARGAMASSA_POLIMERICA
+        animation.setAnimation("loadingGreen.json")
         setViews()
     }
 
@@ -43,7 +47,12 @@ class ViewProductActivity : AppCompatActivity() {
             }
 
             ProductsEnum.CHAPISCO_ROLADO_BARRICA_50KG ->{
-                spnReboco.visibility = View.VISIBLE
+                spnRendimentoReboco.visibility = View.VISIBLE
+            }
+
+            ProductsEnum.REBOCO_PLUS_BALDE_30_KG, ProductsEnum.REBOCO_PLUS_BARRICA_50_KG -> {
+                llSpnTipoReboco.visibility = View.VISIBLE
+                spnTipoReboco.visibility = View.VISIBLE
             }
         }
 
@@ -52,17 +61,36 @@ class ViewProductActivity : AppCompatActivity() {
         imgProduct.setImageResource(img)
 
         btnCalcular.setOnClickListener {
-            if(editMQ.text.toString().isNotEmpty()){
-                val result = ResultFactory.getInstanceFactory(TYPE_PRODUCT, TYPE_BRICK, TYPE_REMD).calcular(editMQ.text.toString().toDouble())
-                textResult.text = result[1]
-                if(result.size > 1) {
-                    textObs.text = result[2]
-                } else {
-                    textObs.text = ""
+            animation.visibility = View.VISIBLE
+            animation.playAnimation()
+
+            animation.addAnimatorListener(object : Animator.AnimatorListener{
+                override fun onAnimationRepeat(p0: Animator?) {}
+                override fun onAnimationCancel(p0: Animator?) {}
+
+                override fun onAnimationEnd(p0: Animator?) {
+                    animation.visibility = View.GONE
+                    animation.pauseAnimation()
+                    if(editMQ.text.toString().isNotEmpty()){
+                        val result = ResultFactory.getInstanceFactory(TYPE_PRODUCT, TYPE_BRICK, TYPE_REMD, TYPE_REBOC).calcular(editMQ.text.toString().toDouble())
+                        textResult.text = result[1]
+                        if(result.size > 1) {
+                            textObs.visibility = View.VISIBLE
+                            textObs.text = result[2]
+                        } else {
+                            textObs.text = ""
+                            textObs.visibility = View.GONE
+                        }
+                    } else {
+                        Toast.makeText(this@ViewProductActivity, "Informe a área em M²", Toast.LENGTH_SHORT).show()
+                    }
                 }
-            } else {
-                Toast.makeText(this, "Informe a área em M²", Toast.LENGTH_SHORT).show()
-            }
+                override fun onAnimationStart(p0: Animator?) {
+                    textResult.text = ""
+                    textObs.visibility = View.GONE
+                }
+
+            })
         }
 
         editMQ.addTextChangedListener(object : TextWatcher {
@@ -71,13 +99,15 @@ class ViewProductActivity : AppCompatActivity() {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
 
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-               textResult.text = ""
-               textObs.text = ""
+                textResult.text = ""
+                textObs.text = ""
+                textObs.visibility = View.GONE
             }
 
         })
         spnTipoTijolo.onItemSelectedListener = listenerTijolo
-        spnReboco.onItemSelectedListener = listenerReboco
+        spnRendimentoReboco.onItemSelectedListener = listenerReboco
+        spnTipoReboco.onItemSelectedListener = listenerTipoReboco
     }
 
     object listenerTijolo : AdapterView.OnItemSelectedListener {
@@ -102,5 +132,16 @@ class ViewProductActivity : AppCompatActivity() {
             }
         }
         override fun onNothingSelected(parent: AdapterView<out Adapter>?) {}
+    }
+
+    object listenerTipoReboco: AdapterView.OnItemSelectedListener {
+        override fun onItemSelected(p0: AdapterView<*>?, p1: View?, pos: Int, p3: Long) {
+            TYPE_REBOC = when(pos) {
+                0 -> {TipoRebocoEnum.ARGAMASSA_POLIMERICA}
+                1 -> {TipoRebocoEnum.MASSA_CONVENCIONAL}
+                else -> {TipoRebocoEnum.ARGAMASSA_POLIMERICA}
+            }
+        }
+        override fun onNothingSelected(p0: AdapterView<*>?) {}
     }
 }

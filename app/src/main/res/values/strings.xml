@@ -24,6 +24,10 @@
         <item>Para receber reboco</item>
         <item>Para ficar exposto</item>
     </string-array>
+    <string-array name="tipo_reboco">
+        <item>Argamassa polimérica</item>
+        <item>Massa convencional</item>
+    </string-array>
     <string name="title_activity_where_are_we">Onde estamos?</string>
 
     <string name="text_our_company_1">Atender com Excelência as necessidades dos Clientes na Área Analítica oferecendo
@@ -70,4 +74,5 @@
     </string>
     <string name="text_endereco">Rua FL 33 Qd. 01 Lt. 22 Parque das Flores \n Cep 74595-222 - Goiânia - GO \n 62 4141-8474 | 62 4141-8573</string>
     <string name="comparativo_de_exemplo">Comparativo de exemplo</string>
+    <string name="p_paredes_feitas_com">P/ paredes feitas com:</string>
 </resources>
