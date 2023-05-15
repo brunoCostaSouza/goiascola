@@ -10,10 +10,9 @@ android {
         applicationId "br.com.bruno.goiascola"
         minSdkVersion 21
         targetSdkVersion 27
-        versionCode 3
-        versionName "1.0.2"
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-    }
+        versionCode 4
+        versionName "2.0.2"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunne
     buildTypes {
         release {
             minifyEnabled false
